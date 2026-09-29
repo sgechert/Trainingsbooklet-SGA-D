@@ -65,16 +65,19 @@ Nach ca. 1–2 Minuten ist das Booklet erreichbar unter:
 
 ## Booklet aktualisieren (wiederkehrender Ablauf)
 
+Der Passwortschutz steckt inzwischen direkt im Booklet (SHA-256-Gate) – staticrypt (Schritt 2) wird **nicht mehr** benötigt.
+
 Wenn Claude das Booklet ändert, läuft das so:
 
 1. Claude aktualisiert `01_Booklet/Trainingsbooklet_D-Jugend_Muster_v2.html`
 2. Claude kopiert die neue Version als `index.html` ins Repo
-3. Du öffnest Git Bash im Repo-Ordner und verschlüsselst neu:
-   ```bash
-   staticrypt index.html --password DEIN-PASSWORT --short
-   ```
-4. In GitHub Desktop: Commit + Push
-5. Fertig – nach 1 Minute ist die neue Version live
+3. Hochladen – eine der beiden Varianten:
+   - **Automatisch:** Aufgabe „SGA Booklet hochladen" läuft täglich um 07:00 (wird nachgeholt, wenn der Rechner aus war). Einmalig eingerichtet über `Trainingsinhalte\automatik-einrichten.bat`.
+   - **Sofort:** Doppelklick auf `Trainingsinhalte\booklet-hochladen.bat`
+4. Fertig – nach 1–2 Minuten ist die neue Version live
+
+Protokoll der automatischen Läufe: `%LOCALAPPDATA%\SGA-Booklet-Upload.log`
+Automatik wieder entfernen: Windows-Aufgabenplanung → „SGA Booklet hochladen" → Löschen.
 
 ---
 
